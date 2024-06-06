@@ -7,6 +7,7 @@ import {
   VideoCameraOutlined,
 } from "@ant-design/icons";
 import { Button, Layout, Menu, theme } from "antd";
+import ContentTable from "./Table/table";
 
 const { Header, Sider, Content } = Layout;
 
@@ -47,6 +48,13 @@ const layoutStyle = {
   maxWidth: "100vw",
 };
 
+const MenuStyle: React.CSSProperties = {
+  textAlign: "center",
+  color: "#ffff",
+  backgroundColor: "transparent",
+  padding: "20px",
+};
+
 const AppLayout2: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
   const {
@@ -59,29 +67,44 @@ const AppLayout2: React.FC = () => {
         trigger={null}
         collapsible
         collapsed={collapsed}
-        width="15%"
+        width="10%"
         style={siderStyle}
       >
         <div className="demo-logo-vertical" />
         <Menu
-          theme="dark"
           mode="inline"
           defaultSelectedKeys={["1"]}
+          style={MenuStyle}
           items={[
             {
               key: "1",
               icon: <UserOutlined />,
               label: "nav 1",
+              style: {
+                backgroundColor: "#181818",
+                color: "#ffff",
+                gap: "12px",
+              },
             },
             {
               key: "2",
               icon: <VideoCameraOutlined />,
               label: "nav 2",
+              style: {
+                backgroundColor: "#181818",
+                color: "#ffff",
+                gap: "12px",
+              },
             },
             {
               key: "3",
               icon: <UploadOutlined />,
               label: "nav 3",
+              style: {
+                backgroundColor: "#181818",
+                color: "#ffff",
+                gap: "12px",
+              },
             },
           ]}
         />
@@ -109,6 +132,7 @@ const AppLayout2: React.FC = () => {
           }}
         >
           Content
+          <ContentTable />
         </Content>
       </Layout>
     </Layout>
