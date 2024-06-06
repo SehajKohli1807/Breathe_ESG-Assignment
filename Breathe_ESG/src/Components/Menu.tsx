@@ -8,6 +8,7 @@ import {
 } from "@ant-design/icons";
 import { Button, Layout, Menu, theme } from "antd";
 import ContentTable from "./Table/table";
+import Banner1 from "./Table/header1";
 
 const { Header, Sider, Content } = Layout;
 
@@ -17,7 +18,7 @@ const headerStyle: React.CSSProperties = {
   height: 64,
   paddingInline: 48,
   lineHeight: "64px",
-  backgroundColor: "#4096ff",
+  backgroundColor: "#ffff",
 };
 
 const contentStyle: React.CSSProperties = {
@@ -25,7 +26,7 @@ const contentStyle: React.CSSProperties = {
   minHeight: 120,
   lineHeight: "120px",
   color: "black",
-  backgroundColor: "#ffff",
+  backgroundColor: "#fffff",
 };
 
 const siderStyle: React.CSSProperties = {
@@ -46,6 +47,7 @@ const layoutStyle = {
   overflow: "hidden",
   width: "100vw",
   maxWidth: "100vw",
+  backgroundColor: "#ffff",
 };
 
 const MenuStyle: React.CSSProperties = {
@@ -109,19 +111,8 @@ const AppLayout2: React.FC = () => {
           ]}
         />
       </Sider>
-      <Layout>
-        <Header style={{ padding: 0, background: colorBgContainer }}>
-          <Button
-            type="text"
-            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-            onClick={() => setCollapsed(!collapsed)}
-            style={{
-              fontSize: "16px",
-              width: 64,
-              height: 64,
-            }}
-          />
-        </Header>
+      <Layout style={layoutStyle}>
+        <Banner1 />
         <Content
           style={{
             margin: "24px 16px",
@@ -131,7 +122,6 @@ const AppLayout2: React.FC = () => {
             borderRadius: borderRadiusLG,
           }}
         >
-          Content
           <ContentTable />
         </Content>
       </Layout>

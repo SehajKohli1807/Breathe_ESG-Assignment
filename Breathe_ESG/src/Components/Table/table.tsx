@@ -209,7 +209,7 @@
 
 // export default App;
 import React, { useState } from "react";
-import { Table } from "antd";
+import { Space, Table } from "antd";
 import { TableColumnsType, TableProps, Tag } from "antd";
 
 type TableRowSelection<T> = TableProps<T>["rowSelection"];
@@ -222,13 +222,14 @@ interface DataType {
   score?: number | string;
   status: string;
   result: string;
+  action: DataType | unknown;
 }
 
 const columns: TableColumnsType<DataType> = [
   {
     title: "ASSESSMENT TITLE",
     dataIndex: "assessment_title",
-    render: (text: string) => <a>{text}</a>,
+    render: (text: string) => <a style={{ color: "#4FA556" }}>{text}</a>,
   },
   {
     title: "TYPE",
@@ -264,6 +265,17 @@ const columns: TableColumnsType<DataType> = [
     dataIndex: "result",
     render: (text: string) => <a style={{ color: "#4FA556" }}>{text}</a>,
   },
+  {
+    title: "ACTIONS",
+    dataIndex: "actions",
+
+    render: () => (
+      <Space size="middle">
+        <a>Invite</a>
+        <a>Delete</a>
+      </Space>
+    ),
+  },
 ];
 
 const data: DataType[] = [
@@ -275,6 +287,7 @@ const data: DataType[] = [
     score: "-",
     status: "pending",
     result: "-",
+    action: "",
   },
   {
     key: "2",
@@ -284,6 +297,7 @@ const data: DataType[] = [
     score: 98,
     status: "accepted",
     result: "View",
+    action: "",
   },
   {
     key: "3",
@@ -293,6 +307,7 @@ const data: DataType[] = [
     score: 98,
     status: "accepted",
     result: "View",
+    action: "",
   },
   {
     key: "4",
@@ -302,6 +317,7 @@ const data: DataType[] = [
     score: 23,
     status: "accepted",
     result: "View",
+    action: "",
   },
   {
     key: "5",
@@ -311,6 +327,7 @@ const data: DataType[] = [
     score: 42,
     status: "accepted",
     result: "View",
+    action: "",
   },
 ];
 
